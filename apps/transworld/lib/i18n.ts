@@ -41,7 +41,7 @@ const ui = {
     terms: 'Terms',
     accessibility: 'Accessibility',
     cameroonOffice: 'Cameroon office',
-    tagline: 'One group, three subsidiaries: Property Services, Global Trade, and Procurement & Sourcing.',
+    tagline: 'Quality-checked African agricultural products, delivered to Canadian businesses.',
     howItWorks: 'How it works',
     forSuppliers: 'For suppliers',
     whatWeSource: 'What we source',
@@ -88,7 +88,7 @@ const ui = {
     terms: 'Conditions',
     accessibility: 'Accessibilité',
     cameroonOffice: 'Bureau du Cameroun',
-    tagline: 'Un groupe, trois filiales : Property Services, Global Trade et Procurement & Sourcing.',
+    tagline: 'Des produits agricoles africains contrôlés, livrés aux entreprises canadiennes.',
     howItWorks: 'Comment ça marche',
     forSuppliers: 'Pour les fournisseurs',
     whatWeSource: 'Ce que nous approvisionnons',
@@ -135,7 +135,7 @@ const ui = {
     terms: 'Términos',
     accessibility: 'Accesibilidad',
     cameroonOffice: 'Oficina de Camerún',
-    tagline: 'Un grupo, tres filiales: Property Services, Global Trade y Procurement & Sourcing.',
+    tagline: 'Productos agrícolas africanos con control de calidad, entregados a empresas canadienses.',
     howItWorks: 'Cómo funciona',
     forSuppliers: 'Para proveedores',
     whatWeSource: 'Lo que abastecemos',
@@ -166,10 +166,10 @@ export const getUi = (locale: Locale): Ui => ui[locale];
 /** Paths (without the locale segment) whose copy is available in every language. */
 const translatedExact = [
   '', 'privacy', 'terms', 'accessibility', 'partners', 'about', 'contact', 'careers',
-  'property-services', 'global-trade', 'global-trade/services', 'global-trade/products',
-  'global-trade/farm-to-market', 'procurement-sourcing',
+  'global-trade', 'global-trade/services', 'global-trade/products',
+  'global-trade/farm-to-market',
 ];
-const translatedPrefix = ['global-trade/services/', 'global-trade/products/', 'property-services/', 'procurement-sourcing/'];
+const translatedPrefix = ['global-trade/services/', 'global-trade/products/'];
 
 export const isTranslated = (pathWithoutLocale: string) =>
   translatedExact.includes(pathWithoutLocale) || translatedPrefix.some((p) => pathWithoutLocale.startsWith(p));

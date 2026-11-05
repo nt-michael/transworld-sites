@@ -203,31 +203,31 @@ export const services: Service[] = [
 ];
 
 export const groupFlow = [
-  { title: 'Producers and suppliers', text: 'Farmers, cooperatives and processors.' },
-  { title: 'Procurement & Sourcing', text: 'Finds suppliers, checks quality and prepares each order.' },
-  { title: 'Global Trade', text: 'Imports, finds markets and manages distribution.' },
+  { title: 'Partner producers', text: 'Farmers, cooperatives and processors in Africa.' },
+  { title: 'Quality control', text: 'Samples of each lot are checked by an independent third party.' },
+  { title: 'TransWorld', text: 'Imports, finds markets and manages distribution in Canada.' },
   { title: 'Buyers', text: 'Processors, distributors and retailers.' },
 ];
 
-/** Which subsidiary handles a step. */
+/** Who handles a step: the partner producer, both, or TransWorld. */
 export type Place = 'sourcing' | 'both' | 'trade';
 
 export const farmToMarket: { title: string; text: string; place: Place }[] = [
   { title: 'Producers', text: 'Farmers and cooperatives grow and harvest the crop.', place: 'sourcing' },
-  { title: 'Procurement', text: 'Our sourcing team selects suppliers and buys the product.', place: 'sourcing' },
-  { title: 'Quality control', text: 'Each lot is sampled and checked before it is accepted.', place: 'sourcing' },
-  { title: 'Processing and preparation', text: 'Lots are sorted, packed and made ready to ship.', place: 'sourcing' },
-  { title: 'Export documentation', text: 'Commercial documents are prepared with freight forwarders.', place: 'sourcing' },
-  { title: 'International logistics', text: 'Both subsidiaries coordinate the shipment to its destination.', place: 'both' },
+  { title: 'Selection at origin', text: 'Our partner producer selects and buys the product at origin.', place: 'sourcing' },
+  { title: 'Quality control', text: 'Samples of each lot are sent for independent third-party inspection and certification.', place: 'both' },
+  { title: 'Processing and preparation', text: 'The partner sorts, packs and prepares the lots for shipping.', place: 'sourcing' },
+  { title: 'Export documentation', text: 'The partner prepares commercial documents with freight forwarders.', place: 'sourcing' },
+  { title: 'International logistics', text: 'We coordinate the shipment with the partner to its destination.', place: 'both' },
   { title: 'Arrival at destination', text: 'Global Trade receives the goods and handles import steps.', place: 'trade' },
   { title: 'Distribution', text: 'Products are delivered to buyers in the agreed quantities.', place: 'trade' },
   { title: 'Customers and partners', text: 'Chocolatiers, processors, distributors and retailers.', place: 'trade' },
 ];
 
 export const placeLabel: Record<Place, string> = {
-  sourcing: 'Procurement & Sourcing',
-  both: 'Both subsidiaries',
-  trade: 'Global Trade',
+  sourcing: 'Partner producers',
+  both: 'Partners and TransWorld',
+  trade: 'TransWorld',
 };
 
 export const howItWorks = [
@@ -279,15 +279,9 @@ export type Profile = { unit: string; role: string; name: string; text: string; 
 export const team: Profile[] = [
   {
     unit: 'TransWorld SG Consulting Group',
-    role: 'Group leadership',
+    role: 'Company leadership',
     name: TBC,
-    text: 'Sets the direction for the group and its three subsidiaries.',
-  },
-  {
-    unit: 'Property Services',
-    role: 'Head of Property Services',
-    name: TBC,
-    text: 'Leads the crews, schedules and quality checks for commercial properties.',
+    text: 'Sets the direction for the company.',
   },
   {
     unit: 'Global Trade',
@@ -295,29 +289,19 @@ export const team: Profile[] = [
     name: TBC,
     text: 'Leads importation, distribution and relations with buyers.',
   },
-  {
-    unit: 'Procurement & Sourcing',
-    role: 'Head of Procurement & Sourcing',
-    name: TBC,
-    text: 'Leads supplier search, purchasing, quality control and export preparation.',
-  },
 ];
 
 export const careerAreas = [
-  {
-    title: 'Property Services',
-    text: 'Cleaning, drywall, demolition and moving crews, and the supervisors who run them.',
-  },
   {
     title: 'Global Trade',
     text: 'Sales, importation, distribution and logistics coordination.',
   },
   {
-    title: 'Procurement & Sourcing',
-    text: 'Supplier search, purchasing, quality control and export documents.',
+    title: 'Quality and partners',
+    text: 'Partner relations, sample handling and quality documents.',
   },
   {
-    title: 'Group support',
+    title: 'Company support',
     text: 'Administration, accounting, customer service and communications.',
   },
 ];

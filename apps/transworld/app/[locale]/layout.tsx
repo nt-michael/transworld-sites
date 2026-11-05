@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: '%s | TransWorld SG Consulting Group',
   },
   description:
-    'One group, three subsidiaries: Property Services, Global Trade, and Procurement & Sourcing.',
+    'Quality-checked African agricultural products, delivered to Canadian businesses.',
 };
 
 export default async function LocaleLayout({

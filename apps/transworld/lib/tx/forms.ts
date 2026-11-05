@@ -26,7 +26,7 @@ export type FormText = {
   topics: [string, string, string, string];
   companyOpt: string;
   area: string;
-  areas: [string, string, string, string, string];
+  areas: [string, string, string, string];
   language: string;
   languages: [string, string, string];
   linkOpt: string;
@@ -35,7 +35,7 @@ export type FormText = {
 
 /** Option values sent to Formspree stay in English so the team reads one language. */
 export const topicValues = ['Sourcing request', 'Supplier introduction', 'Partnership', 'Other question'];
-export const areaValues = ['Property Services', 'Global Trade', 'Procurement & Sourcing', 'Group support', 'Not sure yet'];
+export const areaValues = ['Global Trade', 'Quality and partners', 'Company support', 'Not sure yet'];
 export const languageValues = ['English', 'French', 'No preference'];
 
 export const formText: Record<Locale, FormText> = {
@@ -63,7 +63,7 @@ export const formText: Record<Locale, FormText> = {
     topics: ['Sourcing request', 'Supplier introduction', 'Partnership', 'Other question'],
     companyOpt: 'Company (optional)',
     area: 'Area of interest',
-    areas: ['Property Services', 'Global Trade', 'Procurement & Sourcing', 'Group support', 'Not sure yet'],
+    areas: ['Global Trade', 'Quality and partners', 'Company support', 'Not sure yet'],
     language: 'Preferred language',
     languages: ['English', 'French', 'No preference'],
     linkOpt: 'Link to your CV or profile (optional)',
@@ -98,7 +98,7 @@ export const formText: Record<Locale, FormText> = {
     topics: ['Demande d’approvisionnement', 'Présentation d’un fournisseur', 'Partenariat', 'Autre question'],
     companyOpt: 'Entreprise (facultatif)',
     area: 'Domaine d’intérêt',
-    areas: ['Property Services', 'Global Trade', 'Procurement & Sourcing', 'Soutien au groupe', 'Je ne sais pas encore'],
+    areas: ['Global Trade', 'Qualité et partenaires', 'Soutien à l’entreprise', 'Je ne sais pas encore'],
     language: 'Langue préférée',
     languages: ['Anglais', 'Français', 'Sans préférence'],
     linkOpt: 'Lien vers votre CV ou votre profil (facultatif)',
@@ -133,7 +133,7 @@ export const formText: Record<Locale, FormText> = {
     topics: ['Solicitud de abastecimiento', 'Presentación de un proveedor', 'Colaboración', 'Otra consulta'],
     companyOpt: 'Empresa (opcional)',
     area: 'Área de interés',
-    areas: ['Property Services', 'Global Trade', 'Procurement & Sourcing', 'Apoyo al grupo', 'Aún no lo sé'],
+    areas: ['Global Trade', 'Calidad y socios', 'Apoyo a la empresa', 'Aún no lo sé'],
     language: 'Idioma preferido',
     languages: ['Inglés', 'Francés', 'Sin preferencia'],
     linkOpt: 'Enlace a su CV o perfil (opcional)',

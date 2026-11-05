@@ -28,27 +28,9 @@ export default async function About({ params }: { params: Promise<{ locale: stri
   const data = getData(locale);
 
   const subsidiaries = [
-    {
-      title: 'Property Services',
-      text: t.subs[0],
-      href: p('/property-services'),
-      image: images.mop,
-      tone: 'aqua' as const,
-    },
-    {
-      title: 'Global Trade',
-      text: t.subs[1],
-      href: p('/global-trade'),
-      image: images.trade,
-      tone: 'amber' as const,
-    },
-    {
-      title: 'Procurement & Sourcing',
-      text: t.subs[2],
-      href: p('/procurement-sourcing'),
-      image: images.hero,
-      tone: 'blue' as const,
-    },
+    { title: 'Global Trade', text: t.subs[0], href: p('/global-trade'), image: images.trade, tone: 'amber' as const },
+    { title: ui.products, text: t.subs[1], href: p('/global-trade/products'), image: images.cocoa, tone: 'aqua' as const },
+    { title: ui.farmToMarket, text: t.subs[2], href: p('/global-trade/farm-to-market'), image: images.hero, tone: 'blue' as const },
   ];
 
   return (
@@ -73,7 +55,7 @@ export default async function About({ params }: { params: Promise<{ locale: stri
             {subsidiaries.map((s, i) => (
               <li key={s.title}>
                 <Reveal delay={i * 80}>
-                  <Card href={s.href} image={s.image} eyebrow={ui.subsidiary} title={s.title} text={s.text} tone={s.tone} />
+                  <Card href={s.href} image={s.image} eyebrow={t.subsEyebrow} title={s.title} cta={ui.learnMore} text={s.text} tone={s.tone} />
                 </Reveal>
               </li>
             ))}
@@ -152,18 +134,8 @@ export default async function About({ params }: { params: Promise<{ locale: stri
                 <div><dt>{t.phone}</dt><dd><a href={company.phoneHref}>{company.phoneDisplay}</a></dd></div>
               </dl>
             </div>
-            <div className="panel">
-              <h3 className="h-3">{company.sarl}</h3>
-              <dl className="facts">
-                <div><dt>{t.sigle}</dt><dd>{company.sarlShort}</dd></div>
-                <div><dt>{t.address}</dt><dd>{ui.tbc}</dd></div>
-                <div><dt>{t.registration}</dt><dd>{ui.tbc}</dd></div>
-                <div><dt>{t.phone}</dt><dd>{ui.tbc}</dd></div>
-              </dl>
-            </div>
           </div>
           <dl className="stats">
-            <div><dt>{t.statSubs}</dt><dd>3</dd></div>
             <div><dt>{t.registration}</dt><dd>{company.registration}</dd></div>
             <div><dt>{t.activeSince}</dt><dd className="is-tbc">{ui.tbc}</dd></div>
             <div><dt>{t.certifications}</dt><dd className="is-tbc">{ui.tbc}</dd></div>

@@ -17,15 +17,13 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   const text = homeSlides[locale];
   const base: Pick<Slide, 'tone' | 'image'>[] = [
     { tone: 'sky', image: images.city },
-    { tone: 'aqua', image: images.mop },
     { tone: 'amber', image: images.trade },
     { tone: 'sky', image: images.hero },
   ];
   const links = [
     [p('/about'), p('/contact')],
-    [p('/property-services'), p('/property-services#quote')],
     [p('/global-trade'), p('/global-trade/products')],
-    [p('/procurement-sourcing'), p('/contact')],
+    [p('/global-trade/farm-to-market'), p('/contact')],
   ];
   const slides: Slide[] = base.map((b, i) => ({
     ...b,

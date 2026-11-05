@@ -23,9 +23,9 @@ export const navCopy: ByLocale<{
   sourcingFeature: [string, string];
 }> = {
   en: {
-    aboutIntro: 'One group with three subsidiaries: Property Services, Global Trade, and Procurement & Sourcing.',
+    aboutIntro: 'Who we are, how we work with partner producers, and how we check quality.',
     aboutGroup: 'The group',
-    aboutLinks: ['Our subsidiaries', 'How they work together', 'Registered companies'],
+    aboutLinks: ['What we do', 'How it works', 'Company details'],
     aboutWork: 'Work with us',
     aboutFeature: ['One name, one standard', 'About the group'],
     propertyIntro: 'Cleaning, construction support and moving help for commercial properties.',
@@ -42,9 +42,9 @@ export const navCopy: ByLocale<{
     sourcingFeature: ['Checked at the source', 'Ask us to source a product'],
   },
   fr: {
-    aboutIntro: 'Un groupe, trois filiales : Property Services, Global Trade et Procurement & Sourcing.',
+    aboutIntro: 'Qui nous sommes, comment nous travaillons avec des producteurs partenaires et comment nous contrôlons la qualité.',
     aboutGroup: 'Le groupe',
-    aboutLinks: ['Nos filiales', 'Comment elles travaillent ensemble', 'Sociétés enregistrées'],
+    aboutLinks: ['Ce que nous faisons', 'Comment ça fonctionne', 'Renseignements sur l’entreprise'],
     aboutWork: 'Travailler avec nous',
     aboutFeature: ['Un seul nom, une seule exigence', 'À propos du groupe'],
     propertyIntro: 'Nettoyage, soutien à la construction et aide au déménagement pour les immeubles commerciaux.',
@@ -61,9 +61,9 @@ export const navCopy: ByLocale<{
     sourcingFeature: ['Vérifié à la source', 'Demandez-nous d’approvisionner un produit'],
   },
   es: {
-    aboutIntro: 'Un grupo con tres filiales: Property Services, Global Trade y Procurement & Sourcing.',
+    aboutIntro: 'Quiénes somos, cómo trabajamos con productores socios y cómo controlamos la calidad.',
     aboutGroup: 'El grupo',
-    aboutLinks: ['Nuestras filiales', 'Cómo trabajan juntas', 'Empresas registradas'],
+    aboutLinks: ['Lo que hacemos', 'Cómo funciona', 'Datos de la empresa'],
     aboutWork: 'Trabaje con nosotros',
     aboutFeature: ['Un nombre, un estándar', 'Acerca del grupo'],
     propertyIntro: 'Limpieza, apoyo a la construcción y ayuda en mudanzas para inmuebles comerciales.',
@@ -92,21 +92,18 @@ export type SlideText = {
 
 export const homeSlides: ByLocale<SlideText[]> = {
   en: [
-    { label: 'The group', eyebrow: 'TransWorld SG Consulting Group', title: 'Connecting Africa to global markets. Building better communities.', text: 'One group, three subsidiaries: Property Services, Global Trade, and Procurement & Sourcing.', primary: 'About the group', secondary: 'Contact us' },
-    { label: 'Property Services', eyebrow: 'Property Services', title: 'Clean, safe, ready-to-use commercial spaces.', text: 'Cleaning, construction support and moving help for commercial properties.', primary: 'See the services', secondary: 'Get a quote' },
-    { label: 'Global Trade', eyebrow: 'Global Trade', title: 'African products for international markets.', text: 'Importation, distribution and market development for natural agricultural products.', primary: 'Explore Global Trade', secondary: 'See the products' },
-    { label: 'Procurement & Sourcing', eyebrow: 'Procurement & Sourcing', title: 'The right suppliers, checked at the source.', text: 'Supplier search, purchasing, quality control and export preparation for buyers who need products sourced at origin.', primary: 'Explore sourcing', secondary: 'Contact us' },
+    { label: 'The company', eyebrow: 'TransWorld SG Consulting Group', title: 'Quality-checked African products for Canadian businesses.', text: 'We bring cocoa, shea butter and other agricultural products from trusted partner producers to Canada.', primary: 'About us', secondary: 'Contact us' },
+    { label: 'Global Trade', eyebrow: 'Global Trade', title: 'African products for Canadian buyers.', text: 'Importation, distribution and market development for natural agricultural products.', primary: 'Explore Global Trade', secondary: 'See the products' },
+    { label: 'Quality', eyebrow: 'Quality control', title: 'Each lot checked before it ships.', text: 'Samples are sent for independent third-party inspection before an order is confirmed.', primary: 'See how it works', secondary: 'Request samples' },
   ],
   fr: [
-    { label: 'Le groupe', eyebrow: 'TransWorld SG Consulting Group', title: 'Relier l’Afrique aux marchés mondiaux. Bâtir de meilleures communautés.', text: 'Un groupe, trois filiales : Property Services, Global Trade et Procurement & Sourcing.', primary: 'À propos du groupe', secondary: 'Nous contacter' },
-    { label: 'Property Services', eyebrow: 'Property Services', title: 'Des espaces commerciaux propres, sûrs et prêts à l’emploi.', text: 'Nettoyage, soutien à la construction et aide au déménagement pour les immeubles commerciaux.', primary: 'Voir les services', secondary: 'Obtenir un devis' },
-    { label: 'Global Trade', eyebrow: 'Global Trade', title: 'Des produits africains pour les marchés internationaux.', text: 'Importation, distribution et développement de marchés pour des produits agricoles naturels.', primary: 'Découvrir Global Trade', secondary: 'Voir les produits' },
-    { label: 'Procurement & Sourcing', eyebrow: 'Procurement & Sourcing', title: 'Les bons fournisseurs, vérifiés à la source.', text: 'Recherche de fournisseurs, achats, contrôle de la qualité et préparation à l’exportation pour les acheteurs qui veulent des produits approvisionnés à l’origine.', primary: 'Découvrir le sourcing', secondary: 'Nous contacter' },
+    { label: 'L’entreprise', eyebrow: 'TransWorld SG Consulting Group', title: 'Des produits africains contrôlés pour les entreprises canadiennes.', text: 'Nous apportons au Canada du cacao, du beurre de karité et d’autres produits agricoles de producteurs partenaires de confiance.', primary: 'À propos de nous', secondary: 'Nous contacter' },
+    { label: 'Global Trade', eyebrow: 'Global Trade', title: 'Des produits africains pour les acheteurs canadiens.', text: 'Importation, distribution et développement de marchés pour des produits agricoles naturels.', primary: 'Découvrir Global Trade', secondary: 'Voir les produits' },
+    { label: 'Qualité', eyebrow: 'Contrôle de la qualité', title: 'Chaque lot vérifié avant l’expédition.', text: 'Des échantillons sont envoyés pour une inspection indépendante par un tiers avant la confirmation d’une commande.', primary: 'Voir comment ça fonctionne', secondary: 'Demander des échantillons' },
   ],
   es: [
-    { label: 'El grupo', eyebrow: 'TransWorld SG Consulting Group', title: 'Conectamos África con los mercados globales. Construimos mejores comunidades.', text: 'Un grupo, tres filiales: Property Services, Global Trade y Procurement & Sourcing.', primary: 'Acerca del grupo', secondary: 'Contáctenos' },
-    { label: 'Property Services', eyebrow: 'Property Services', title: 'Espacios comerciales limpios, seguros y listos para usar.', text: 'Limpieza, apoyo a la construcción y ayuda en mudanzas para inmuebles comerciales.', primary: 'Ver los servicios', secondary: 'Pedir un presupuesto' },
-    { label: 'Global Trade', eyebrow: 'Global Trade', title: 'Productos africanos para los mercados internacionales.', text: 'Importación, distribución y desarrollo de mercados para productos agrícolas naturales.', primary: 'Explorar Global Trade', secondary: 'Ver los productos' },
-    { label: 'Procurement & Sourcing', eyebrow: 'Procurement & Sourcing', title: 'Los proveedores adecuados, comprobados en origen.', text: 'Búsqueda de proveedores, compras, control de calidad y preparación para la exportación para compradores que necesitan productos abastecidos en origen.', primary: 'Explorar el sourcing', secondary: 'Contáctenos' },
+    { label: 'La empresa', eyebrow: 'TransWorld SG Consulting Group', title: 'Productos africanos con control de calidad para empresas canadienses.', text: 'Llevamos a Canadá cacao, manteca de karité y otros productos agrícolas de productores socios de confianza.', primary: 'Quiénes somos', secondary: 'Contáctenos' },
+    { label: 'Global Trade', eyebrow: 'Global Trade', title: 'Productos africanos para compradores canadienses.', text: 'Importación, distribución y desarrollo de mercados para productos agrícolas naturales.', primary: 'Explorar Global Trade', secondary: 'Ver los productos' },
+    { label: 'Calidad', eyebrow: 'Control de calidad', title: 'Cada lote revisado antes de enviarse.', text: 'Se envían muestras a una inspección independiente de un tercero antes de confirmar un pedido.', primary: 'Vea cómo funciona', secondary: 'Pedir muestras' },
   ],
 };
