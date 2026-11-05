@@ -1,0 +1,8 @@
+.site-footer{background:#0e1626;border-top:0;color:rgba(255,255,255,.82)}
+.site-footer .footer-brand p{color:rgba(255,255,255,.82)}
+.site-footer .footer-cols h2{color:#fff}
+.site-footer .footer-cols a{color:rgba(255,255,255,.82)}
+.site-footer .footer-cols a:hover{color:var(--sky)}
+.site-footer .logo{background:#fff;padding:8px 12px;border-radius:2px}
+.site-footer :focus-visible{outline-color:var(--sky)}
+.footer-legal{border-top:1px solid rgba(255,255,255,.12)}

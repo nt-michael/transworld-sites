@@ -1,0 +1,9 @@
+{
+  "name": "transworld-sites",
+  "private": true,
+  "workspaces": ["apps/*", "packages/*"],
+  "scripts": {
+    "dev:transworld": "npm run dev -w apps/transworld",
+    "build:transworld": "npm run build -w apps/transworld"
+  }
+}
