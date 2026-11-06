@@ -1,7 +1,7 @@
 import { QuoteBand, Section, SectionHead, Steps } from '@tw/ui';
 import { notFound } from 'next/navigation';
 import ServiceTiles from '@/components/ServiceTiles';
-import SplitHero from '@/components/SplitHero';
+import FadeHero from '@/components/FadeHero';
 import { isLocale } from '@/lib/i18n';
 import { contact, getDict, getProperty, images, path } from '@/lib/site';
 
@@ -12,10 +12,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   const q = path(locale, '/request-a-quote');
   return (
     <>
-      <SplitHero
+      <FadeHero
         eyebrow={d.home.eyebrow} title={d.home.title} lead={d.home.lead} chips={d.home.chips}
         primary={{ label: d.ui.quote, href: q }} secondary={{ label: `${d.ui.call} ${contact.phone}`, href: contact.phoneHref }}
-        imageMain={images.mop} imageSub={images.ladder}
+        images={[images.mop, images.warehouse, images.cleanDesk, images.ladder, images.city, images.logistics]}
       />
       <Section labelledBy="services">
         <SectionHead id="services" title={d.home.servicesTitle} intro={d.home.servicesIntro} />
