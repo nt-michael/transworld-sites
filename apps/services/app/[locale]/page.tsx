@@ -1,41 +1,30 @@
+import { Hero, OfferCards, ProofStrip, QuoteBand, Section, SectionHead, Steps } from '@tw/ui';
 import { notFound } from 'next/navigation';
-import HeroSlider, { type Slide } from '@/components/HeroSlider';
-import { images } from '@/lib/content';
-import { homeSlides } from '@/lib/copy';
-import { getUi, isLocale } from '@/lib/i18n';
+import { isLocale } from '@/lib/i18n';
+import { getDict, getProperty, getSourcing, images, path } from '@/lib/site';
 
-/**
- * Home is the hero slider only, between the header and the footer.
- * Every other section has its own page.
- */
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
-  const p = (s = '') => `/${locale}${s}`;
-
-  const ui = getUi(locale);
-  const text = homeSlides[locale];
-  const base: Pick<Slide, 'tone' | 'image'>[] = [
-    { tone: 'sky', image: images.city },
-    { tone: 'aqua', image: images.mop },
-    { tone: 'amber', image: images.trade },
-    { tone: 'sky', image: images.hero },
-  ];
-  const links = [
-    [p('/about'), p('/contact')],
-    [p('/property-services'), p('/property-services#quote')],
-    [p('/global-trade'), p('/global-trade/products')],
-    [p('/procurement-sourcing'), p('/contact')],
-  ];
-  const slides: Slide[] = base.map((b, i) => ({
-    ...b,
-    label: text[i].label,
-    eyebrow: text[i].eyebrow,
-    title: text[i].title,
-    text: text[i].text,
-    primary: { href: links[i][0], label: text[i].primary },
-    secondary: { href: links[i][1], label: text[i].secondary },
-  }));
-
-  return <HeroSlider slides={slides} labels={{ pause: ui.pause, play: ui.play, slide: ui.slide, of: ui.of }} />;
+  const d = getDict(locale);
+  const q = path(locale, '/request-a-quote');
+  return (
+    <>
+      <Hero eyebrow={d.home.eyebrow} title={d.home.title} lead={d.home.lead} image={images.city} primary={{ label: d.ui.quote, href: q }} secondary={{ label: d.ui.call, href: 'tel:+14373326929' }} />
+      <Section tone="mist" className="!py-10"><ProofStrip items={d.home.proof.map((p) => ({ ...p }))} /></Section>
+      <Section labelledBy="property">
+        <SectionHead id="property" eyebrow={d.home.propertyEyebrow} title={d.home.propertyTitle} intro={d.home.propertyIntro} />
+        <OfferCards items={getProperty(locale).map((s) => ({ title: s.name, text: s.blurb, href: path(locale, `/property-services/${s.slug}`), cta: d.ui.viewService, image: s.image }))} />
+      </Section>
+      <Section tone="mist" labelledBy="sourcing">
+        <SectionHead id="sourcing" eyebrow={d.home.sourcingEyebrow} title={d.home.sourcingTitle} intro={d.home.sourcingIntro} />
+        <OfferCards items={getSourcing(locale).map((s) => ({ title: s.name, text: s.blurb, href: path(locale, `/procurement-sourcing/${s.slug}`), cta: d.ui.viewService, image: s.image }))} />
+      </Section>
+      <Section tone="dark" labelledBy="how">
+        <SectionHead id="how" dark title={d.home.howTitle} intro={d.home.howIntro} />
+        <Steps dark items={d.home.steps} />
+      </Section>
+      <QuoteBand title={d.home.bandTitle} text={d.home.bandText} quote={{ label: d.ui.quote, href: q }} />
+    </>
+  );
 }

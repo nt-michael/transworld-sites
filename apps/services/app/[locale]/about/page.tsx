@@ -1,184 +1,44 @@
-import type { Metadata } from 'next';
-import Image from 'next/image';
-import Link from 'next/link';
+import { PageHeader, QuoteBand, Section, SectionHead, SpecTable } from '@tw/ui';
 import { notFound } from 'next/navigation';
-import Arrow from '@/components/Arrow';
-import Card from '@/components/Card';
-import PageHero from '@/components/PageHero';
-import Reveal from '@/components/Reveal';
-import SectionHead from '@/components/SectionHead';
-import { company, images, TBC, team } from '@/lib/content';
-import { getUi, isLocale } from '@/lib/i18n';
-import { getData } from '@/lib/tx/data';
-import { getPageText } from '@/lib/tx/pages';
+import { isLocale } from '@/lib/i18n';
+import { contact, getDict, path } from '@/lib/site';
+import { company } from '@/lib/content';
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  if (!isLocale(locale)) return {};
-  const t = getPageText(locale).about;
-  return { title: t.metaTitle, description: t.metaDesc };
+  return isLocale(locale) ? { title: getDict(locale).nav.about } : {};
 }
 
 export default async function About({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
-  const p = (s = '') => `/${locale}${s}`;
-  const ui = getUi(locale);
-  const t = getPageText(locale).about;
-  const data = getData(locale);
-
-  const subsidiaries = [
-    {
-      title: 'Property Services',
-      text: t.subs[0],
-      href: p('/property-services'),
-      image: images.mop,
-      tone: 'aqua' as const,
-    },
-    {
-      title: 'Global Trade',
-      text: t.subs[1],
-      href: p('/global-trade'),
-      image: images.trade,
-      tone: 'amber' as const,
-    },
-    {
-      title: 'Procurement & Sourcing',
-      text: t.subs[2],
-      href: p('/procurement-sourcing'),
-      image: images.hero,
-      tone: 'blue' as const,
-    },
-  ];
-
+  const d = getDict(locale);
+  const a = d.about;
   return (
     <>
-      <PageHero
-        image={images.city}
-        crumbs={[{ label: ui.home, href: p() }, { label: ui.about }]}
-        eyebrow={t.eyebrow}
-        title={t.title}
-        lead={t.lead}
-      />
-
-      <section className="section" aria-labelledby="subsidiaries">
-        <div className="wrap">
-          <SectionHead
-            id="subsidiaries"
-            eyebrow={t.subsEyebrow}
-            title={t.subsTitle}
-            intro={t.subsIntro}
-          />
-          <ul className="card-grid">
-            {subsidiaries.map((s, i) => (
-              <li key={s.title}>
-                <Reveal delay={i * 80}>
-                  <Card href={s.href} image={s.image} eyebrow={ui.subsidiary} title={s.title} text={s.text} tone={s.tone} />
-                </Reveal>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <section className="split split--dark" aria-labelledby="together">
-        <div className="split-media">
-          <Image src={images.logistics} alt="" fill sizes="(min-width: 1080px) 50vw, 100vw" />
-        </div>
-        <div className="split-body">
-          <p className="eyebrow eyebrow--sky">{t.togetherEyebrow}</p>
-          <h2 className="h-1" id="together">
-            {t.togetherTitle}
-          </h2>
-          <p className="intro">{t.togetherIntro}</p>
-          <ol className="chain">
-            {data.groupFlow.map((step, i) => (
-              <li key={step.title}>
-                <span className="chain-n" aria-hidden="true">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <strong>{step.title}</strong>
-                <span>{step.text}</span>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      <section className="section section--mist" aria-labelledby="team">
-        <div className="wrap">
-          <SectionHead
-            id="team"
-            eyebrow={t.teamEyebrow}
-            title={t.teamTitle}
-            intro={t.teamIntro}
-          />
-          <ul className="team-grid">
-            {team.map((person, i) => (
-              <li key={person.role}>
-                <Reveal delay={i * 70}>
-                  <article className="profile">
-                    <span className="profile-photo" aria-hidden="true">
-                      {person.photo ? (
-                        <Image src={person.photo} alt="" fill sizes="280px" />
-                      ) : (
-                        <svg viewBox="0 0 48 48" width="96" height="96" fill="currentColor">
-                          <circle cx="24" cy="17" r="8" />
-                          <path d="M8 42c1.5-9 8-14 16-14s14.5 5 16 14z" />
-                        </svg>
-                      )}
-                    </span>
-                    <p className="profile-unit">{person.unit}</p>
-                    <h3 className="h-3">{data.team[i].role}</h3>
-                    <p className={person.name === TBC ? 'profile-name is-tbc' : 'profile-name'}>{person.name === TBC ? ui.tbc : person.name}</p>
-                    <p className="profile-text">{data.team[i].text}</p>
-                  </article>
-                </Reveal>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <section className="section" aria-labelledby="companies">
-        <div className="wrap">
-          <SectionHead id="companies" eyebrow={t.legalEyebrow} title={t.legalTitle} />
-          <div className="two-col">
-            <div className="panel">
-              <h3 className="h-3">{company.inc}</h3>
-              <dl className="facts">
-                <div><dt>{t.address}</dt><dd>{company.address}</dd></div>
-                <div><dt>{t.regNo}</dt><dd>{company.registration}</dd></div>
-                <div><dt>{t.phone}</dt><dd><a href={company.phoneHref}>{company.phoneDisplay}</a></dd></div>
-              </dl>
+      <PageHeader eyebrow={a.eyebrow} title={a.title} lead={a.lead} crumbs={[{ label: d.ui.home.split(',')[0], href: path(locale) }, { label: a.eyebrow }]} />
+      <Section>
+        <div className="grid gap-6 md:grid-cols-3">
+          {a.blocks.map((b) => (
+            <div key={b.title} className="rounded-card border border-line bg-white p-6">
+              <h2 className="font-heading text-xl font-semibold text-ink">{b.title}</h2>
+              <p className="mt-2 text-slate">{b.text}</p>
             </div>
-            <div className="panel">
-              <h3 className="h-3">{company.sarl}</h3>
-              <dl className="facts">
-                <div><dt>{t.sigle}</dt><dd>{company.sarlShort}</dd></div>
-                <div><dt>{t.address}</dt><dd>{ui.tbc}</dd></div>
-                <div><dt>{t.registration}</dt><dd>{ui.tbc}</dd></div>
-                <div><dt>{t.phone}</dt><dd>{ui.tbc}</dd></div>
-              </dl>
-            </div>
-          </div>
-          <dl className="stats">
-            <div><dt>{t.statSubs}</dt><dd>3</dd></div>
-            <div><dt>{t.registration}</dt><dd>{company.registration}</dd></div>
-            <div><dt>{t.activeSince}</dt><dd className="is-tbc">{ui.tbc}</dd></div>
-            <div><dt>{t.certifications}</dt><dd className="is-tbc">{ui.tbc}</dd></div>
-          </dl>
+          ))}
         </div>
-      </section>
-
-      <section className="cta-band">
-        <div className="wrap cta-row">
-          <h2 className="h-1">{t.ctaTitle}</h2>
-          <Link href={p('/contact')} className="btn btn--light">
-            {ui.contactUs} <Arrow />
-          </Link>
+      </Section>
+      <Section tone="mist" labelledBy="facts">
+        <SectionHead id="facts" title={a.factsTitle} />
+        <div className="max-w-2xl">
+          <SpecTable caption={a.factsTitle} rows={[
+            { label: a.address, value: contact.address },
+            { label: a.reg, value: company.registration },
+            { label: a.phone, value: contact.phone },
+            { label: a.email, value: contact.email },
+          ]} />
         </div>
-      </section>
+      </Section>
+      <QuoteBand title={d.home.bandTitle} text={d.home.bandText} quote={{ label: d.ui.quote, href: path(locale, '/request-a-quote') }} />
     </>
   );
 }

@@ -1,142 +1,45 @@
-import type { Metadata } from 'next';
-import Link from 'next/link';
+import { PageHeader, QuoteBand, Scope, Section, Steps, SectionHead } from '@tw/ui';
 import { notFound } from 'next/navigation';
-import Arrow from '@/components/Arrow';
-import Card from '@/components/Card';
-import PageHero from '@/components/PageHero';
-import Reveal from '@/components/Reveal';
-import SectionHead from '@/components/SectionHead';
-import { images, services } from '@/lib/content';
-import { getUi, isLocale, locales } from '@/lib/i18n';
-import { getData } from '@/lib/tx/data';
-import { getPageText } from '@/lib/tx/pages';
-import { getServices } from '@/lib/tx/services';
+import { isLocale, locales } from '@/lib/i18n';
+import { getDict, getProperty, path } from '@/lib/site';
 
-type Params = Promise<{ locale: string; slug: string }>;
+export const generateStaticParams = () => locales.flatMap((locale) => getProperty(locale).map((s) => ({ locale, slug: s.slug })));
 
-export function generateStaticParams() {
-  return locales.flatMap((locale) => services.map((service) => ({ locale, slug: service.slug })));
+export async function generateMetadata({ params }: { params: Promise<{ locale: string; slug: string }> }) {
+  const { locale, slug } = await params;
+  if (!isLocale(locale)) return {};
+  const s = getProperty(locale).find((x) => x.slug === slug);
+  return s ? { title: s.name, description: s.blurb } : {};
 }
 
-export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
+export default async function Page({ params }: { params: Promise<{ locale: string; slug: string }> }) {
   const { locale, slug } = await params;
-  const i = services.findIndex((item) => item.slug === slug);
-  if (!isLocale(locale) || i < 0) return {};
-  const x = getServices(locale)[i];
-  return { title: x.name, description: x.overview };
-}
-
-export default async function ServicePage({ params }: { params: Params }) {
-  const { locale, slug } = await params;
-  const idx = services.findIndex((item) => item.slug === slug);
-  if (!isLocale(locale) || idx < 0) notFound();
-  const base = services[idx];
-  const all = getServices(locale);
-  const service = { ...base, ...all[idx] };
-  const ui = getUi(locale);
-  const t = getPageText(locale).property;
-  const how = getData(locale).how;
-  const p = (s = '') => `/${locale}${s}`;
-  const others = services.map((item, i) => ({ item, i })).filter(({ item }) => item.slug !== slug).slice(0, 3);
-
+  if (!isLocale(locale)) notFound();
+  const d = getDict(locale);
+  const s = getProperty(locale).find((x) => x.slug === slug);
+  if (!s) notFound();
+  const parent = d.nav.property;
   return (
     <>
-      <PageHero
-        image={service.image ?? images.warehouse}
-        short
-        crumbs={[
-          { label: ui.home, href: p() },
-          { label: 'Property Services', href: p('/property-services') },
-          { label: service.name },
-        ]}
-        eyebrow={t.serviceEyebrow}
-        tone="aqua"
-        title={service.name}
-        lead={service.overview}
-      >
-        <Link href={p('/property-services#quote')} className="btn btn--aqua">
-          {t.getQuote} <Arrow />
-        </Link>
-      </PageHero>
-
-      <section className="section" aria-labelledby="included">
-        <div className="wrap two-col two-col--wide">
+      <PageHeader eyebrow={parent} title={s.name} lead={s.blurb} crumbs={[{ label: d.ui.home.split(',')[0], href: path(locale) }, { label: parent, href: path(locale, '/property-services') }, { label: s.name }]} />
+      <Section>
+        <div className="grid gap-10 lg:grid-cols-[1.1fr_1fr]">
           <div>
-            <h2 className="h-1" id="included">
-              {t.included}
-            </h2>
-            <ul className="checklist">
-              {service.includes.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-            {service.note && <p className="callout">{service.note}</p>}
+            <p className="max-w-prose text-lg text-slate">{s.overview}</p>
+            {s.note ? <p className="mt-6 max-w-prose rounded-card border border-line bg-mist p-5 text-slate"><strong className="font-heading text-ink">{d.service.note}: </strong>{s.note}</p> : null}
           </div>
-          <div>
-            <h2 className="h-2">{t.goodFor}</h2>
-            <ul className="checklist checklist--plain">
-              {service.suitedFor.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          {s.image ? <img src={s.image} alt="" className="aspect-[4/3] w-full rounded-card object-cover" /> : null}
         </div>
-      </section>
-
-      <section className="section section--teal" aria-labelledby="how">
-        <div className="wrap">
-          <SectionHead id="how" eyebrow={t.processEyebrow} title={t.howWeWork} />
-          <ol className="steps-row">
-            {how.map((step, i) => (
-              <li key={step.title}>
-                <Reveal delay={i * 80}>
-                  <span className="steps-n" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
-                  <h3 className="h-3">{step.title}</h3>
-                  <p>{step.text}</p>
-                </Reveal>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      <section className="section" aria-labelledby="more">
-        <div className="wrap">
-          <SectionHead
-            id="more"
-            title={t.others}
-            action={
-              <Link href={p('/property-services')} className="link-arrow">
-                {t.allServices} <Arrow />
-              </Link>
-            }
-          />
-          <ul className="card-grid card-grid--3">
-            {others.map(({ item, i }) => (
-              <li key={item.slug}>
-                <Card
-                  href={p(`/property-services/${item.slug}`)}
-                  image={item.image}
-                  index={i}
-                  title={all[i].name}
-                  text={all[i].blurb}
-                  tone="aqua"
-                  cta={ui.learnMore}
-                />
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <section className="cta-band">
-        <div className="wrap cta-row">
-          <h2 className="h-1">{t.ctaTitle}</h2>
-          <Link href={p('/property-services#quote')} className="btn btn--light">
-            {t.ctaBtn} <Arrow />
-          </Link>
-        </div>
-      </section>
+      </Section>
+      <Section tone="mist">
+        <Scope labels={{ included: d.service.included, excluded: d.service.excluded, suited: d.service.suited }} included={s.includes} suited={s.suitedFor} />
+      </Section>
+      <Section labelledBy="how">
+        <SectionHead id="how" title={d.service.howTitle} />
+        <Steps items={d.service.steps} />
+      </Section>
+      <QuoteBand title={d.home.bandTitle} text={d.home.bandText} quote={{ label: d.ui.quote, href: path(locale, '/request-a-quote') }} />
     </>
   );
 }
