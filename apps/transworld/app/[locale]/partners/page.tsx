@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Arrow from '@/components/Arrow';
 import PageHero from '@/components/PageHero';
@@ -29,7 +30,26 @@ export default async function Partners({ params }: { params: Promise<{ locale: s
         title={c.title}
         lead={c.lead}
       />
-      <section className="section" aria-labelledby="types">
+      <section className="section" aria-labelledby="ours">
+        <div className="wrap">
+          <SectionHead id="ours" title={c.ours.title} intro={c.ours.intro} />
+          <ul className="two-col" style={{ listStyle: "none", padding: 0 }}>
+            {c.ours.items.map((item) => (
+              <li key={item.name}>
+                <div className="panel panel--white">
+                  <p className="tag tag--amber">{item.role}</p>
+                  <h3 className="h-3">{item.name}</h3>
+                  <p>{item.text}</p>
+                  {item.href && (
+                    <Link href={`/${locale}${item.href}`} className="link-arrow">{item.cta} <Arrow /></Link>
+                  )}
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+      <section className="section section--mist" aria-labelledby="types">
         <div className="wrap">
           <SectionHead id="types" title={c.typesTitle} intro={c.typesIntro} />
           <ul className="card-grid card-grid--4">
@@ -46,7 +66,7 @@ export default async function Partners({ params }: { params: Promise<{ locale: s
           </ul>
         </div>
       </section>
-      <section className="section section--mist" aria-labelledby="look">
+      <section className="section" aria-labelledby="look">
         <div className="wrap rows-layout">
           <div className="rows-intro">
             <h2 className="h-1" id="look">

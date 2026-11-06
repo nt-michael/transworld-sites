@@ -664,6 +664,7 @@ export const partnersCopy: ByLocale<{
   typesTitle: string;
   typesIntro: string;
   types: { title: string; text: string }[];
+  ours: { title: string; intro: string; items: { name: string; role: string; text: string; href?: string; cta?: string }[] };
   lookTitle: string;
   lookIntro: string;
   look: string[];
@@ -684,6 +685,14 @@ export const partnersCopy: ByLocale<{
       { title: 'Freight and logistics', text: 'Freight forwarders, customs brokers and carriers who move goods from origin to destination.' },
       { title: 'Trades and service contractors', text: 'Cleaning, demolition, drywall, concrete and moving crews who work with Property Services.' },
     ],
+    ours: {
+      title: 'Our partners',
+      intro: 'The organizations we work with today.',
+      items: [
+        { name: 'Bureau Veritas', role: 'Independent inspection', text: 'Controls our produce, starting with cocoa: moisture, defects, cut test and grade, with a certificate for each lot.', href: '/quality-control', cta: 'See the analyses' },
+        { name: 'Transco SG Group', role: 'Producer and exporter, Cameroon', text: 'Supplies raw produce from Cameroon, which we bring to Canadian businesses.' },
+      ],
+    },
     lookTitle: 'What we look for',
     lookIntro: 'We keep the list short, and we ask the same of ourselves.',
     look: ['Reliability: you do what you said, when you said it', 'Documents that are complete and accurate', 'Consistent quality, lot after lot', 'Clear, honest communication, including bad news'],
@@ -704,6 +713,14 @@ export const partnersCopy: ByLocale<{
       { title: 'Fret et logistique', text: 'Transitaires, courtiers en douane et transporteurs qui acheminent les marchandises de l’origine à la destination.' },
       { title: 'Corps de métier et entrepreneurs de services', text: 'Équipes de nettoyage, de démolition, de cloisons sèches, de béton et de déménagement qui travaillent avec Property Services.' },
     ],
+    ours: {
+      title: 'Nos partenaires',
+      intro: 'Les organisations avec lesquelles nous travaillons aujourd’hui.',
+      items: [
+        { name: 'Bureau Veritas', role: 'Inspection indépendante', text: 'Contrôle nos produits, à commencer par le cacao : humidité, défauts, test à la coupe et classement, avec un certificat pour chaque lot.', href: '/quality-control', cta: 'Voir les analyses' },
+        { name: 'Transco SG Group', role: 'Producteur et exportateur, Cameroun', text: 'Fournit des produits bruts du Cameroun, que nous livrons aux entreprises canadiennes.' },
+      ],
+    },
     lookTitle: 'Ce que nous recherchons',
     lookIntro: 'Nous gardons la liste courte, et nous nous l’appliquons à nous-mêmes.',
     look: ['La fiabilité : vous faites ce que vous avez dit, quand vous l’avez dit', 'Des documents complets et exacts', 'Une qualité constante, lot après lot', 'Une communication claire et honnête, y compris quand la nouvelle est mauvaise'],
@@ -724,6 +741,14 @@ export const partnersCopy: ByLocale<{
       { title: 'Flete y logística', text: 'Transitarios, agentes de aduanas y transportistas que llevan la mercancía del origen al destino.' },
       { title: 'Oficios y contratistas de servicios', text: 'Equipos de limpieza, demolición, paneles de yeso, hormigón y mudanzas que trabajan con Property Services.' },
     ],
+    ours: {
+      title: 'Nuestros socios',
+      intro: 'Las organizaciones con las que trabajamos hoy.',
+      items: [
+        { name: 'Bureau Veritas', role: 'Inspección independiente', text: 'Controla nuestros productos, empezando por el cacao: humedad, defectos, prueba de corte y clasificación, con un certificado por cada lote.', href: '/quality-control', cta: 'Ver los análisis' },
+        { name: 'Transco SG Group', role: 'Productor y exportador, Camerún', text: 'Suministra productos en bruto de Camerún, que llevamos a empresas canadienses.' },
+      ],
+    },
     lookTitle: 'Qué buscamos',
     lookIntro: 'Mantenemos la lista corta y nos la aplicamos a nosotros mismos.',
     look: ['Fiabilidad: hace lo que dijo, cuando lo dijo', 'Documentos completos y exactos', 'Calidad constante, lote tras lote', 'Comunicación clara y honesta, también cuando la noticia es mala'],

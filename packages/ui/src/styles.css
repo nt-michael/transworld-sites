@@ -50,15 +50,22 @@
   --accent-soft: #f3ede6;
   --on-accent: #1b120a;
   --dark-ground: #1b120a;
+  --primary: #1555b8;
+  --primary-hover: #0f4296;
 }
+/* Services: workwear orange on warm charcoal, its own look (not the trade site's blue/amber). */
 [data-site="services"] {
-  --accent: #5eead4;
-  --accent-strong: #0b6b63;
-  --accent-soft: #e8f6f4;
-  --on-accent: #061217;
-  --dark-ground: #061217;
+  --accent: #ff9a4d;
+  --accent-strong: #b8420a;
+  --accent-soft: #fff1e5;
+  --on-accent: #1a0f07;
+  --dark-ground: #16130f;
+  --primary: #b8420a;
+  --primary-hover: #983608;
 }
 [data-site="transco"] {
+  --primary: #1555b8;
+  --primary-hover: #0f4296;
   --accent: #7bd389;
   --accent-strong: #1f6b3a;
   --accent-soft: #e9f4ec;
@@ -72,6 +79,8 @@
   --color-accent-soft: var(--accent-soft);
   --color-on-accent: var(--on-accent);
   --color-dark-ground: var(--dark-ground);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
 }
 
 @layer base {

@@ -10,9 +10,9 @@ export default function TradeNav({ locale, ui }: { locale: Locale; ui: Ui }) {
         <span className="subnav-title" aria-hidden="true">Global Trade</span>
         <ul>
           <li><NavLink href={p()} exact>{ui.overview}</NavLink></li>
-          <li><NavLink href={p('/products')}>{ui.products}</NavLink></li>
           <li><NavLink href={p('/services')}>{ui.tradeServices}</NavLink></li>
           <li><NavLink href={p('/farm-to-market')}>{ui.farmToMarket}</NavLink></li>
+          <li><NavLink href={`/${locale}/quality-control`}>{({ en: 'Quality control', fr: 'Contrôle qualité', es: 'Control de calidad' } as const)[locale]}</NavLink></li>
         </ul>
       </div>
     </nav>

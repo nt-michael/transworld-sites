@@ -167,7 +167,7 @@ export const getUi = (locale: Locale): Ui => ui[locale];
 const translatedExact = [
   '', 'privacy', 'terms', 'accessibility', 'partners', 'about', 'contact', 'careers',
   'global-trade', 'global-trade/services', 'global-trade/products',
-  'global-trade/farm-to-market',
+  'global-trade/farm-to-market', 'quality-control', 'request-a-quote',
 ];
 const translatedPrefix = ['global-trade/services/', 'global-trade/products/'];
 

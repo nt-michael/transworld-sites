@@ -33,7 +33,7 @@ export function OfferCards({ items, columns = 3 }: { items: Offer[]; columns?: 2
               {o.tag && <p className="mb-2 text-xs font-semibold uppercase tracking-[0.1em] text-accent-strong">{o.tag}</p>}
               <h3 className="text-xl font-bold">{o.title}</h3>
               <p className="mt-2 flex-1 text-slate">{o.text}</p>
-              <Link href={o.href} className="mt-5 inline-flex min-h-11 items-center font-semibold text-blue underline-offset-4 hover:underline">
+              <Link href={o.href} className="mt-5 inline-flex min-h-11 items-center font-semibold text-primary underline-offset-4 hover:underline">
                 {o.cta}<span className="sr-only">: {o.title}</span>
                 <svg aria-hidden="true" className="ml-2" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 8h10M9 4l4 4-4 4" /></svg>
               </Link>

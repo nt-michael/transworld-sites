@@ -14,14 +14,19 @@ import '../globals.css';
 
 export const generateStaticParams = () => locales.map((locale) => ({ locale }));
 
+const base = new URL(process.env.NEXT_PUBLIC_SITE_URL ?? (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : 'http://localhost:3000'));
+
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   if (!isLocale(locale)) return {};
   const d = getDict(locale);
   return {
-    title: { default: d.meta.title, template: `%s | ${d.meta.title}` },
+    metadataBase: base,
+    title: { default: d.meta.title, template: '%s | Transco SG Group' },
     description: d.meta.description,
-    alternates: { languages: { fr: '/fr', en: '/en' } },
+    alternates: { canonical: `/${locale}`, languages: { fr: '/fr', en: '/en', 'x-default': '/fr' } },
+    openGraph: { type: 'website', siteName: 'Transco SG Group', locale: locale === 'fr' ? 'fr_CM' : 'en_CM', alternateLocale: locale === 'fr' ? ['en_CM'] : ['fr_CM'], url: `/${locale}`, title: d.meta.title, description: d.meta.description },
+    twitter: { card: 'summary_large_image', title: d.meta.title, description: d.meta.description },
   };
 }
 

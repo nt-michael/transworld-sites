@@ -29,7 +29,7 @@ export default function Footer({ locale, ui }: { locale: Locale; ui: Ui }) {
             <h2>Global Trade</h2>
             <ul>
               <li><Link href={p('/global-trade')}>{ui.overview}</Link></li>
-              <li><Link href={p('/global-trade/products')}>{ui.products}</Link></li>
+              <li><Link href={p('/global-trade#products')}>{ui.products}</Link></li>
               <li><Link href={p('/global-trade/services')}>{ui.tradeServices}</Link></li>
               <li><Link href={p('/global-trade/farm-to-market')}>{ui.farmToMarket}</Link></li>
             </ul>

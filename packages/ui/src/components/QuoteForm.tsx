@@ -73,7 +73,7 @@ export function QuoteForm({ formId, site, locale, subject, fields, labels, conta
         <button
           type="submit"
           disabled={state === 'sending'}
-          className="inline-flex min-h-12 items-center justify-center rounded-pill bg-blue px-8 py-3 text-base font-semibold text-white hover:bg-[#0f4296] disabled:opacity-60"
+          className="inline-flex min-h-12 items-center justify-center rounded-pill bg-primary px-8 py-3 text-base font-semibold text-white hover:bg-primary-hover disabled:opacity-60"
         >
           {state === 'sending' ? labels.sending : labels.submit}
         </button>

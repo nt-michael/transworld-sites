@@ -39,7 +39,7 @@ export default async function GlobalTrade({ params }: { params: Promise<{ locale
         title="Global Trade"
         lead={t.lead}
       >
-        <Link href={`${base}/products`} className="btn btn--amber">
+        <Link href={`${base}#products`} className="btn btn--amber">
           {t.quoteBtn} <Arrow />
         </Link>
         <Link href={`${base}/farm-to-market`} className="btn btn--outline-light">
@@ -48,7 +48,7 @@ export default async function GlobalTrade({ params }: { params: Promise<{ locale
       </PageHero>
       <TradeNav locale={locale} ui={ui} />
 
-      <section className="section section--mist">
+      <section id="products" className="section section--mist">
         <div className="wrap">
           <Carousel
             label={t.productsLabel}

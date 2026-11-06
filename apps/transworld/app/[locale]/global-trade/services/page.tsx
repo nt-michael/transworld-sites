@@ -49,7 +49,7 @@ export default async function TradeServices({ params }: { params: Promise<{ loca
       <section className="cta-band cta-band--cocoa">
         <div className="wrap cta-row">
           <h2 className="h-1">{t.ctaTradeTitle}</h2>
-          <Link href={`${base}/products`} className="btn btn--light">
+          <Link href={`${base}#products`} className="btn btn--light">
             {t.ctaTrade} <Arrow />
           </Link>
         </div>

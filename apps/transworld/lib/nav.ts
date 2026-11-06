@@ -57,9 +57,10 @@ export function getNav(locale: Locale, ui: Ui): NavItem[] {
         {
           title: c.tradeGroup,
           links: [
-            { label: ui.products, href: p('/global-trade/products') },
+            { label: ui.products, href: p('/global-trade#products') },
             { label: ui.tradeServices, href: p('/global-trade/services') },
             { label: ui.farmToMarket, href: p('/global-trade/farm-to-market') },
+            { label: ({ en: 'Quality control', fr: 'Contrôle qualité', es: 'Control de calidad' } as const)[locale], href: p('/quality-control') },
           ],
         },
       ],

@@ -11,7 +11,7 @@ export function Footer({
   legal: { label: string; href: string }[]; contact: ReactNode; copyright: string;
 }) {
   return (
-    <footer className="bg-midnight text-white/85">
+    <footer className="bg-dark-ground text-white/85">
       <Container className="grid gap-10 py-14 lg:grid-cols-[1.4fr_repeat(3,1fr)]">
         <div>
           {logo}

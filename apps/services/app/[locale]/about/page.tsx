@@ -31,7 +31,6 @@ export default async function About({ params }: { params: Promise<{ locale: stri
         <SectionHead id="facts" title={a.factsTitle} />
         <div className="max-w-2xl">
           <SpecTable caption={a.factsTitle} rows={[
-            { label: a.address, value: contact.address },
             { label: a.reg, value: company.registration },
             { label: a.phone, value: contact.phone },
             { label: a.email, value: contact.email },

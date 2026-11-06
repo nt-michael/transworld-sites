@@ -5,7 +5,7 @@ import { cx } from '../cx';
 type Variant = 'primary' | 'secondary' | 'accent' | 'ghost-light';
 const styles: Record<Variant, string> = {
   // light surfaces
-  primary: 'bg-blue text-white hover:bg-[#0f4296]',
+  primary: 'bg-primary text-white hover:bg-primary-hover',
   secondary: 'border border-ink/25 text-ink hover:border-ink hover:bg-mist',
   // dark surfaces
   accent: 'bg-accent text-on-accent hover:brightness-95',

@@ -29,7 +29,7 @@ export default async function About({ params }: { params: Promise<{ locale: stri
 
   const subsidiaries = [
     { title: 'Global Trade', text: t.subs[0], href: p('/global-trade'), image: images.trade, tone: 'amber' as const },
-    { title: ui.products, text: t.subs[1], href: p('/global-trade/products'), image: images.cocoa, tone: 'aqua' as const },
+    { title: ui.products, text: t.subs[1], href: p('/global-trade#products'), image: images.cocoa, tone: 'aqua' as const },
     { title: ui.farmToMarket, text: t.subs[2], href: p('/global-trade/farm-to-market'), image: images.hero, tone: 'blue' as const },
   ];
 

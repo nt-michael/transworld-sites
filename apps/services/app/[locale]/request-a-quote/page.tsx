@@ -1,7 +1,7 @@
 import { PageHeader, QuoteForm, Section, SectionHead, Steps } from '@tw/ui';
 import { notFound } from 'next/navigation';
 import { isLocale } from '@/lib/i18n';
-import { getDict, getProperty, getSourcing, path, site } from '@/lib/site';
+import { getDict, getProperty, path, site } from '@/lib/site';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -13,10 +13,7 @@ export default async function RequestAQuote({ params }: { params: Promise<{ loca
   if (!isLocale(locale)) notFound();
   const d = getDict(locale);
   const f = d.form;
-  const options = [
-    ...getProperty(locale).map((s) => ({ value: s.name, label: `${f.groupProperty}: ${s.name}` })),
-    ...getSourcing(locale).map((s) => ({ value: s.name, label: `${f.groupSourcing}: ${s.name}` })),
-  ];
+  const options = getProperty(locale).map((s) => ({ value: s.name, label: s.name }));
   return (
     <>
       <PageHeader eyebrow={d.request.eyebrow} title={d.request.title} lead={d.request.lead} crumbs={[{ label: d.ui.home.split(',')[0], href: path(locale) }, { label: d.request.title }]} />

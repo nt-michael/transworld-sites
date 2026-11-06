@@ -19,9 +19,8 @@ export default async function Contact({ params }: { params: Promise<{ locale: st
       <Section labelledBy="direct">
         <SectionHead id="direct" title={c.direct} intro={c.directText} />
         <ul className="space-y-2 text-lg">
-          <li><a className="font-semibold text-blue underline-offset-4 hover:underline" href={contact.phoneHref}>{contact.phone}</a></li>
-          <li><a className="font-semibold text-blue underline-offset-4 hover:underline" href={`mailto:${contact.email}`}>{contact.email}</a></li>
-          <li className="text-slate">{contact.address}</li>
+          <li><a className="font-semibold text-primary underline-offset-4 hover:underline" href={contact.phoneHref}>{contact.phone}</a></li>
+          <li><a className="font-semibold text-primary underline-offset-4 hover:underline" href={`mailto:${contact.email}`}>{contact.email}</a></li>
         </ul>
       </Section>
       <QuoteBand title={d.home.bandTitle} text={d.home.bandText} quote={{ label: d.ui.quote, href: path(locale, '/request-a-quote') }} />

@@ -29,7 +29,7 @@ export default async function TradeServicePage({ params }: { params: Params }) {
       group="trade"
       item={item}
       all={tradeDetails[locale]}
-      cta={{ title: t.ctaTradeTitle, label: t.ctaTrade, href: `/${locale}/global-trade/products` }}
+      cta={{ title: t.ctaTradeTitle, label: t.ctaTrade, href: `/${locale}/global-trade#products` }}
     />
   );
 }

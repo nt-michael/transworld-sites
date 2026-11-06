@@ -14,3 +14,5 @@ export { Footer } from './components/Footer';
 export type { FooterColumn } from './components/Footer';
 export { QuoteForm } from './components/QuoteForm';
 export type { QuoteField, QuoteFormProps } from './components/QuoteForm';
+export { LangMenu } from './components/LangMenu';
+export type { LangOption } from './components/LangMenu';

@@ -45,7 +45,7 @@ export default async function ProductPage({ params }: { params: Params }) {
               <ol className="crumbs crumbs--dark">
                 <li><Link href={`/${locale}`}>{ui.home}</Link></li>
                 <li><Link href={base}>Global Trade</Link></li>
-                <li><Link href={`${base}/products`}>{ui.products}</Link></li>
+                <li><Link href={`${base}#products`}>{ui.products}</Link></li>
                 <li><span aria-current="page">{product.name}</span></li>
               </ol>
             </nav>

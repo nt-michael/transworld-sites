@@ -9,17 +9,26 @@ import Logo from '@/components/Logo';
 import LogoLight from '@/components/LogoLight';
 import Providers from '@/components/Providers';
 import { isLocale, locales } from '@/lib/i18n';
-import { getNav } from '@/lib/nav';
+import { getFooterNav, getNav } from '@/lib/nav';
 import { contact, getDict, path } from '@/lib/site';
 import '../globals.css';
 
 export const generateStaticParams = () => locales.map((locale) => ({ locale }));
 
+const base = new URL(process.env.NEXT_PUBLIC_SITE_URL ?? (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : 'http://localhost:3000'));
+
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   if (!isLocale(locale)) return {};
   const d = getDict(locale);
-  return { title: { default: d.meta.title, template: `%s | TransWorld SG` }, description: d.meta.description, alternates: { languages: { en: '/en', fr: '/fr' } } };
+  return {
+    metadataBase: base,
+    title: { default: d.meta.title, template: `%s | TransWorld Property Services` },
+    description: d.meta.description,
+    alternates: { canonical: `/${locale}`, languages: { en: '/en', fr: '/fr', 'x-default': '/en' } },
+    openGraph: { type: 'website', siteName: 'TransWorld Property Services', locale: locale === 'fr' ? 'fr_CA' : 'en_CA', alternateLocale: locale === 'fr' ? ['en_CA'] : ['fr_CA'], url: `/${locale}`, title: d.meta.title, description: d.meta.description },
+    twitter: { card: 'summary_large_image', title: d.meta.title, description: d.meta.description },
+  };
 }
 
 export default async function LocaleLayout({ children, params }: { children: ReactNode; params: Promise<{ locale: string }> }) {
@@ -49,13 +58,13 @@ export default async function LocaleLayout({ children, params }: { children: Rea
             logo={<LogoLight />}
             about={d.ui.footerAbout}
             columns={[
-              { title: d.ui.footerNav, links: nav.map((n) => ({ label: n.label, href: n.href })) },
-              { title: d.ui.footerLegal, links: [{ label: d.ui.quote, href: path(locale, '/request-a-quote') }, { label: d.privacy.title, href: path(locale, '/privacy') }] },
+              { title: d.ui.footerNav, links: nav[0].children!.map((c) => ({ label: c.label, href: c.href })) },
+              { title: d.ui.footerLegal, links: [{ label: d.ui.quote, href: path(locale, '/request-a-quote') }, ...getFooterNav(locale)] },
             ]}
             legal={[{ label: d.privacy.title, href: path(locale, '/privacy') }]}
             contact={
               <p className="max-w-xl text-white/75">
-                {contact.address} · <a className="underline" href={contact.phoneHref}>{contact.phone}</a> · <a className="underline" href={`mailto:${contact.email}`}>{contact.email}</a>
+                <a className="underline" href={contact.phoneHref}>{contact.phone}</a> · <a className="underline" href={`mailto:${contact.email}`}>{contact.email}</a>
               </p>
             }
             copyright={`© ${new Date().getFullYear()} TransWorld SG Consulting Group. ${d.ui.rights}`}

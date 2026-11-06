@@ -75,7 +75,7 @@ export type Dict = {
 };
 
 const fr: Dict = {
-  meta: { title: 'Transco SG Group', description: 'Produits agricoles bruts du Cameroun, triés et prêts à exporter : cacao, café, karité, poivre de Penja, djansang.' },
+  meta: { title: 'Transco SG Group | Cacao, café et karité bruts du Cameroun', description: 'Produits agricoles bruts du Cameroun, triés et prêts à exporter : cacao, café, karité, poivre de Penja, djansang.' },
   ui: {
     home: 'Transco SG Group, accueil', skip: 'Aller au contenu principal', menu: 'Ouvrir le menu', closeMenu: 'Fermer le menu', nav: 'Navigation principale', langLabel: 'Langue',
     quote: 'Demander un devis', quoteShort: 'Devis', seeProduce: 'Voir les produits', viewProduct: 'Voir le produit', discover: 'En savoir plus',
@@ -172,7 +172,7 @@ const fr: Dict = {
 };
 
 const en: Dict = {
-  meta: { title: 'Transco SG Group', description: 'Raw agricultural products from Cameroon, sorted and ready to export: cocoa, coffee, shea, Penja pepper, djansang.' },
+  meta: { title: 'Transco SG Group | Raw cocoa, coffee and shea from Cameroon', description: 'Raw agricultural products from Cameroon, sorted and ready to export: cocoa, coffee, shea, Penja pepper, djansang.' },
   ui: {
     home: 'Transco SG Group, home', skip: 'Skip to main content', menu: 'Open menu', closeMenu: 'Close menu', nav: 'Main navigation', langLabel: 'Language',
     quote: 'Request a quote', quoteShort: 'Quote', seeProduce: 'See the produce', viewProduct: 'View product', discover: 'Learn more',

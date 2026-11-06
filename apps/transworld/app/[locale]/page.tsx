@@ -22,7 +22,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   ];
   const links = [
     [p('/about'), p('/contact')],
-    [p('/global-trade'), p('/global-trade/products')],
+    [p('/global-trade'), p('/global-trade#products')],
     [p('/global-trade/farm-to-market'), p('/contact')],
   ];
   const slides: Slide[] = base.map((b, i) => ({

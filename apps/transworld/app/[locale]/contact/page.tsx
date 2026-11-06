@@ -23,8 +23,8 @@ export default async function Contact({ params }: { params: Promise<{ locale: st
   const t = getPageText(locale).contact;
 
   const needs = [
-    { ...t.needs[0], href: p('/global-trade/products'), image: images.cocoa, tone: 'aqua' as const, eyebrow: 'Global Trade' },
-    { ...t.needs[1], href: p('/global-trade/products'), image: images.trade, tone: 'amber' as const, eyebrow: 'Global Trade' },
+    { ...t.needs[0], href: p('/global-trade#products'), image: images.cocoa, tone: 'aqua' as const, eyebrow: 'Global Trade' },
+    { ...t.needs[1], href: p('/global-trade#products'), image: images.trade, tone: 'amber' as const, eyebrow: 'Global Trade' },
     { ...t.needs[2], href: p('/partners'), image: images.hero, tone: 'blue' as const, eyebrow: ui.partners },
   ];
 

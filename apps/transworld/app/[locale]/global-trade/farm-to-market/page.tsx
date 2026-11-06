@@ -69,7 +69,7 @@ export default async function FarmToMarket({ params }: { params: Promise<{ local
       <section className="cta-band cta-band--cocoa">
         <div className="wrap cta-row">
           <h2 className="h-1">{t.ftmCta}</h2>
-          <Link href={`${base}/products`} className="btn btn--light">
+          <Link href={`${base}#products`} className="btn btn--light">
             {t.quoteBtn} <Arrow />
           </Link>
         </div>
