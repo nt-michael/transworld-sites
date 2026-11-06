@@ -1,0 +1,99 @@
+/*
+ * @tw/ui design tokens (Tailwind v4).
+ * Usage in an app's globals.css:
+ *   @import "tailwindcss";
+ *   @import "@tw/ui/styles.css";
+ *   @source "../../../../packages/ui/src";   (path relative to that css file)
+ * and set <html data-site="trade|services|transco">.
+ */
+
+@theme {
+  /* Core identity (shared by all three sites) */
+  --color-midnight: #070b14;
+  --color-ink: #0a1020;
+  --color-blue: #1555b8;
+  --color-sky: #9cc2ff;
+  --color-white: #ffffff;
+  --color-mist: #f4f6fa;
+  --color-line: #d8dee9;
+  --color-field: #5b6780;
+  --color-slate: #46536b;
+  --color-signal: #b42318;
+
+  /* Division accents */
+  --color-amber: #f2a65a;
+  --color-cocoa: #8a4b1f;
+  --color-shell: #f3ede6;
+  --color-aqua: #5eead4;
+  --color-teal: #0b6b63;
+  --color-leaf: #7bd389;
+  --color-forest: #1f6b3a;
+
+  --font-heading: "Sora Variable", "Sora", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-geist-sans), "Geist", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-card: 1.25rem;
+  --radius-pill: 999px;
+
+  --container-page: 76rem;
+}
+
+/* Per-site accent: set by <html data-site="...">.
+   accent        = fill / text on DARK surfaces
+   accent-strong = text and buttons on LIGHT surfaces
+   accent-soft   = tile ground
+   on-accent     = text that sits on an accent fill */
+:root,
+[data-site="trade"] {
+  --accent: #f2a65a;
+  --accent-strong: #8a4b1f;
+  --accent-soft: #f3ede6;
+  --on-accent: #1b120a;
+  --dark-ground: #1b120a;
+}
+[data-site="services"] {
+  --accent: #5eead4;
+  --accent-strong: #0b6b63;
+  --accent-soft: #e8f6f4;
+  --on-accent: #061217;
+  --dark-ground: #061217;
+}
+[data-site="transco"] {
+  --accent: #7bd389;
+  --accent-strong: #1f6b3a;
+  --accent-soft: #e9f4ec;
+  --on-accent: #07140c;
+  --dark-ground: #07140c;
+}
+
+@theme inline {
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-soft: var(--accent-soft);
+  --color-on-accent: var(--on-accent);
+  --color-dark-ground: var(--dark-ground);
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    color: var(--color-ink);
+    background: var(--color-white);
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-blue);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+}
