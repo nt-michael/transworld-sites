@@ -646,7 +646,8 @@ a.link-arrow:hover .arrow,
 }
 
 .header-contact {
-  display: none;
+  display: inline-flex;
+  white-space: nowrap;
 }
 
 .menu-toggle {

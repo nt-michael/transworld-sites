@@ -90,7 +90,7 @@ export default function SiteForm({
         </label>
       </div>
 
-      {kind === 'trade' && <p className="form-note">{t.tradeNote(productLabel ?? product ?? '')}</p>}
+      {kind === 'trade' && (product || productLabel) && <p className="form-note">{t.tradeNote(productLabel ?? product ?? '')}</p>}
 
       {kind === 'property' && (
         <>

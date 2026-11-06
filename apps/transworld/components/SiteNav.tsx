@@ -206,8 +206,8 @@ export default function SiteNav({ items, locale, ui }: { items: NavItem[]; local
             ))}
           </ul>
         </div>
-        <Link href={`/${locale}/contact`} className="btn btn--primary btn--sm header-contact">
-          {ui.contactUs}
+        <Link href={`/${locale}/request-a-quote`} className="btn btn--primary btn--sm header-contact">
+          {ui.quote}
         </Link>
         <button
           ref={toggleRef}
