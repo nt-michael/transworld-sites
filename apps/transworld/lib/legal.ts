@@ -18,7 +18,7 @@ export const legal: Record<Locale, Record<LegalKind, LegalDoc>> = {
           id: 'who',
           title: 'Who we are',
           paras: [
-            'TransWorld SG Consulting Group Inc. (Reg. No. 7FBFNK84), 1198 Bethamy Lane, Gloucester, Ontario K1J 8P3, Canada, is responsible for the personal information collected through this website. Our Cameroon company, TransWorld SG Consulting SARL, may receive requests that concern its own activities.',
+            'TransWorld SG Consulting Group Inc. (Reg. No. 7FBFNK84), Canada, is responsible for the personal information collected through this website. Our Cameroon company, TransWorld SG Consulting SARL, may receive requests that concern its own activities.',
           ],
         },
         {
@@ -183,7 +183,7 @@ export const legal: Record<Locale, Record<LegalKind, LegalDoc>> = {
           id: 'who',
           title: 'Qui nous sommes',
           paras: [
-            'TransWorld SG Consulting Group Inc. (n° d’enregistrement 7FBFNK84), 1198 Bethamy Lane, Gloucester (Ontario) K1J 8P3, Canada, est responsable des renseignements personnels recueillis par ce site. Notre société au Cameroun, TransWorld SG Consulting SARL, peut recevoir des demandes qui concernent ses propres activités.',
+            'TransWorld SG Consulting Group Inc. (n° d’enregistrement 7FBFNK84), Canada, est responsable des renseignements personnels recueillis par ce site. Notre société au Cameroun, TransWorld SG Consulting SARL, peut recevoir des demandes qui concernent ses propres activités.',
           ],
         },
         {
@@ -348,7 +348,7 @@ export const legal: Record<Locale, Record<LegalKind, LegalDoc>> = {
           id: 'who',
           title: 'Quiénes somos',
           paras: [
-            'TransWorld SG Consulting Group Inc. (n.º de registro 7FBFNK84), 1198 Bethamy Lane, Gloucester, Ontario K1J 8P3, Canadá, es responsable de la información personal recopilada a través de este sitio. Nuestra empresa en Camerún, TransWorld SG Consulting SARL, puede recibir solicitudes relacionadas con sus propias actividades.',
+            'TransWorld SG Consulting Group Inc. (n.º de registro 7FBFNK84), Canadá, es responsable de la información personal recopilada a través de este sitio. Nuestra empresa en Camerún, TransWorld SG Consulting SARL, puede recibir solicitudes relacionadas con sus propias actividades.',
           ],
         },
         {

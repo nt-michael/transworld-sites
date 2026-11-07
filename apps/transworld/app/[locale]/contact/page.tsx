@@ -79,7 +79,6 @@ export default async function Contact({ params }: { params: Promise<{ locale: st
               <p className="tag">{t.canada}</p>
               <h3 className="h-3">{company.inc}</h3>
               <dl className="facts">
-                <div><dt>{t.address}</dt><dd><address>{company.address}</address></dd></div>
                 <div><dt>{t.phone}</dt><dd><a href={company.phoneHref}>{company.phoneDisplay}</a></dd></div>
                 {emails.map((e, i) => (
                   <div key={e.address}>

@@ -129,7 +129,6 @@ export default async function About({ params }: { params: Promise<{ locale: stri
             <div className="panel">
               <h3 className="h-3">{company.inc}</h3>
               <dl className="facts">
-                <div><dt>{t.address}</dt><dd>{company.address}</dd></div>
                 <div><dt>{t.regNo}</dt><dd>{company.registration}</dd></div>
                 <div><dt>{t.phone}</dt><dd><a href={company.phoneHref}>{company.phoneDisplay}</a></dd></div>
               </dl>

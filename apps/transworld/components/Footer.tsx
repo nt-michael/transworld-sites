@@ -48,7 +48,7 @@ export default function Footer({ locale, ui }: { locale: Locale; ui: Ui }) {
       <div className="footer-legal">
         <div className="wrap footer-legal-row">
           <p>
-            © {new Date().getFullYear()} {company.inc} · {ui.regNo} {company.registration} · {company.address}
+            © {new Date().getFullYear()} {company.inc} · {ui.regNo} {company.registration}
           </p>
           <ul>
             <li><Link href={p('/privacy')}>{ui.privacy}</Link></li>

@@ -93,13 +93,13 @@ export function Scope({
 /** Product specification rows (trade and Transco). */
 export function SpecTable({ rows, caption }: { rows: { label: string; value: string; tbc?: boolean }[]; caption: string }) {
   return (
-    <table className="w-full overflow-hidden rounded-card border border-line text-left">
+    <table className="w-full table-fixed overflow-hidden rounded-card border border-line text-left">
       <caption className="sr-only">{caption}</caption>
       <tbody className="divide-y divide-line">
         {rows.map((r) => (
           <tr key={r.label} className="bg-white">
             <th scope="row" className="w-2/5 bg-mist px-5 py-3 text-sm font-semibold text-slate">{r.label}</th>
-            <td className={cx('px-5 py-3', r.tbc && 'text-field')}>{r.value}</td>
+            <td className={cx("break-words px-5 py-3", r.tbc && "text-field")}>{r.value}</td>
           </tr>
         ))}
       </tbody>

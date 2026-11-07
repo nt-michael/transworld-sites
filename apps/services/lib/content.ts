@@ -31,7 +31,6 @@ export const company = {
   sarl: 'TransWorld SG Consulting SARL',
   sarlShort: 'TRANSCO SG GROUP SARL',
   registration: '7FBFNK84',
-  address: '1198 Bethamy Lane, Gloucester, Ontario K1J 8P3',
   phoneDisplay: '+1 (437) 332-6929',
   phoneHref: 'tel:+14373326929',
   email: 'contact@transworldsg.com',
